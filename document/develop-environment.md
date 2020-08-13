@@ -28,3 +28,7 @@ TODO(後で頑張るかも)
 ### VSCodeで用いる開発用の外部ライブラリのインストール
 GOPATHを`/workspace`で設定しているため、コンテナ起動後にGUI等でインストールしようとすると、`/workspace/bin`配下にダウンロードされる  
 開発用パッケージはリポジトリ管理として共有したいため、追加やアップデートしたい場合は`.devcontainer/Dockerfile`を更新すること
+
+## FAQ
+### VSCodeから `git push`できない
+参考:https://qiita.com/y-tsutsu/items/ec984831e6c8262d3ff7
