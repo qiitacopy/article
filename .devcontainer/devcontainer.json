@@ -1,11 +1,11 @@
 {
-    "name": "golang Remote-Container",
+    "name": "qiitacopy Remote-Container",
     "dockerComposeFile": "docker-compose.yaml",
     "service" : "golang",
     "workspaceFolder": "/workspace",
     "settings": {
         "terminal.integrated.shell.linux": "/usr/bin/fish",
-        "go.gopath": "/workspace",
+        "go.gopath": "/workspace"
     },
     "extensions": [
         "alefragnani.bookmarks",
