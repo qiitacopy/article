@@ -2,7 +2,7 @@ FROM golang:1.15.0-alpine3.12
 
 # ===== common area =====
 ENV WORKSPACE_DIR "/workspace"
-RUN apk add --no-cache fish git openssh curl wget musl-dev gcc jq \
+RUN apk add --no-cache fish git openssh curl wget musl-dev gcc jq postgresql-client \
     && mkdir -p $WORKSPACE_DIR
 COPY .config/fish/config.fish /root/.config/fish/config.fish
 # =======================

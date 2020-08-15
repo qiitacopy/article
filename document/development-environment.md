@@ -12,7 +12,9 @@ VSCode Remote Containers で開発環境を作る場合は以下の3つのイン
 ## 環境構築設定の解説
 TODO(後で頑張るかも)
 
-## 動作確認方法
+## 初期構築作業
+
+### 動作確認
 1. リポジトリをCloneし、対象のディレクトリでVSCodeを開く
     ```
     git clone git@github.com:qiitacopy/article.git
@@ -27,7 +29,7 @@ TODO(後で頑張るかも)
 ## 開発環境更新に関するルール
 ### VSCodeで用いる開発用の外部ライブラリのインストール
 GOPATHを`/workspace`で設定しているため、コンテナ起動後にGUI等でインストールしようとすると、`/workspace/bin`配下にダウンロードされる  
-開発用パッケージはリポジトリ管理として共有したいため、追加やアップデートしたい場合は`.devcontainer/Dockerfile`を更新すること
+開発用パッケージはリポジトリ管理として共有したいため、追加やアップデートしたい場合は`.devcontainer/Dockerfile`を更新すること  
 
 ## FAQ
 ### VSCodeから `git push`できない

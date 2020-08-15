@@ -1,5 +1,11 @@
+.DS_Store
+
+# go
 fish_history
 pkg/
 __debug_bin
 bin/
-.DS_Store
+
+# postgres
+postgres/data/
+postgres/pgadmin/
