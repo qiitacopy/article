@@ -4,8 +4,7 @@
     "service" : "golang",
     "workspaceFolder": "/workspace",
     "settings": {
-        "terminal.integrated.shell.linux": "/usr/bin/fish",
-        "go.gopath": "/workspace"
+        "terminal.integrated.shell.linux": "/usr/bin/fish"
     },
     "extensions": [
         "alefragnani.bookmarks",
