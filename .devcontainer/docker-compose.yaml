@@ -12,8 +12,8 @@ services:
       - $HOME/.gitconfig:/root/.gitconfig
       - ./golang/.local/share/fish/fish_history:/root/.local/share/fish/fish_history
       - ..:/workspace
-      - overwrite:/workspace/postgres/data
-      - overwrite:/workspace/postgres/pgadmin
+      - overwrite:/workspace/.devcontainer/postgres/data
+      - overwrite:/workspace/.devcontainer/postgres/pgadmin
   postgres:
     build:
       context: "./postgres"
@@ -26,8 +26,8 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - ../postgres/data:/var/lib/postgresql/data
-      - ../postgres/initdb:/docker-entrypoint-initdb.d
+      - ./postgres/data:/var/lib/postgresql/data
+      - ./postgres/initdb:/docker-entrypoint-initdb.d
   pgadmin:
     image: dpage/pgadmin4:4.24
     ports:
@@ -36,7 +36,7 @@ services:
       PGADMIN_DEFAULT_EMAIL: admin@example.com
       PGADMIN_DEFAULT_PASSWORD: admin
     volumes:
-      - ../postgres/pgadmin:/var/lib/pgadmin
+      - ./postgres/pgadmin:/var/lib/pgadmin
     depends_on:
       - postgres
 volumes:
