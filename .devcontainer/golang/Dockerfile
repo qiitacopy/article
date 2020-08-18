@@ -29,7 +29,8 @@ ARG GO_TOOLS_WITH_MODULES="\
     github.com/zmb3/gogetdoc \
     github.com/fatih/gomodifytags \
     github.com/mgechev/revive \
-    github.com/go-delve/delve/cmd/dlv"
+    github.com/go-delve/delve/cmd/dlv \
+    golang.org/x/tools/cmd/godoc"
 RUN mkdir -p /tmp/gotools \
     && cd /tmp/gotools \
     && export GOPATH=/tmp/gotools \

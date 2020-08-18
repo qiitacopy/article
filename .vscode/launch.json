@@ -5,8 +5,8 @@
             "name": "Launch Server",
             "type": "go",
             "request": "launch",
-            "mode": "debug",
-            "program": "${workspaceFolder}/src/github.com/qiitacopy/article/server.go"
+            "mode": "debug"
+            //"program": "${workspaceFolder}/server.go"
         }
     ]
 }

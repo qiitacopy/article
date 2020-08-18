@@ -7,5 +7,5 @@ __debug_bin
 bin/
 
 # postgres
-postgres/data/
-postgres/pgadmin/
+.devcontainer/postgres/data/
+.devcontainer/postgres/pgadmin/
