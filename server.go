@@ -4,6 +4,7 @@ import (
 	"log"
 	"net"
 
+	"github.com/qiitacopy/article/db/postgres"
 	pb "github.com/qiitacopy/article/grpc"
 	"google.golang.org/grpc"
 )
@@ -22,7 +23,7 @@ func main() {
 
 	// サーバ起動
 	s := grpc.NewServer()
-	pb.RegisterArticleServiceServer(s, &pb.ArticleGrpcServer{})
+	pb.RegisterArticleServiceServer(s, pb.NewArticleServer(new(postgres.Postgres)))
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
 	}
