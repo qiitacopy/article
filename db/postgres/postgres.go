@@ -20,6 +20,7 @@ func NewPostgres() *Postgres {
 func (p *Postgres) GetByID(id int) (*article.Article, error) {
 	// DB接続
 	db, err := gormConnect()
+	// エラー処理
 	if err != nil {
 		return nil, err
 	}

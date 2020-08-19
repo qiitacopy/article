@@ -22,7 +22,7 @@ func NewArticleServer(db db.Database) *ArticleGrpcServer {
 
 // GetByID : 記事IDに該当する記事を１件取得する
 func (s ArticleGrpcServer) GetByID(ctx context.Context, articleID *ArticleID) (*Article, error) {
-	log.Printf("Received: %v", articleID.Id)
+	log.Printf("gRPC: GetByID is called, ArticleID = %v", articleID.Id)
 	// DBからarticle.Articleを一件取得
 	record, err := s.db.GetByID(int(articleID.Id))
 	// DB接続でエラーが発生した場合、呼び出しもとに戻す
