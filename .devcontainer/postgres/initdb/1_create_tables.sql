@@ -1,4 +1,4 @@
-create table article
+create table articles
 (
   id SERIAL primary key,
   username VARCHAR(50) not null,
