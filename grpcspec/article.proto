@@ -1,0 +1,26 @@
+syntax = "proto3";
+// go用コード生成方法
+// プロジェクトのルートディレクトリで以下コマンドを実行
+// protoc --go_opt=paths=source_relative --go_out=plugins=grpc:./grpc --proto_path=./grpcspec ./grpcspec/article.proto
+// protoc --go_opt=paths=source_relative --go_out=plugins=grpc:.<出力ディレクトリ> --proto_path=<参照するprotoファイルが存在するディレクトリ> <対象のprotoファイル>
+option go_package="github.com/qiitacopy/article/grpc";
+
+// goファイルのパッケージ名になる
+package grpc;
+
+service ArticleService {
+    rpc GetByID(ArticleID) returns (Article) {}
+}
+
+message ArticleID{
+    int32 id = 1;
+}
+
+message Article {
+    int32 id = 1;
+    string username = 2;
+    string title = 3;
+    string text = 4;
+    string created_at = 5;
+    string updated_at = 6;
+}

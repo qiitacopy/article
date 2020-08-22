@@ -2,7 +2,7 @@ FROM golang:1.15.0-alpine3.12
 
 # ===== common area =====
 ENV WORKSPACE_DIR "/workspace"
-RUN apk add --no-cache fish git openssh curl wget musl-dev gcc jq postgresql-client \
+RUN apk add --no-cache fish git openssh curl wget musl-dev gcc jq postgresql-client protobuf\
     && mkdir -p $WORKSPACE_DIR
 COPY .config/fish/config.fish /root/.config/fish/config.fish
 # =======================
@@ -30,7 +30,9 @@ ARG GO_TOOLS_WITH_MODULES="\
     github.com/fatih/gomodifytags \
     github.com/mgechev/revive \
     github.com/go-delve/delve/cmd/dlv \
-    golang.org/x/tools/cmd/godoc"
+    golang.org/x/tools/cmd/godoc \
+    google.golang.org/grpc \
+    github.com/golang/protobuf/protoc-gen-go"
 RUN mkdir -p /tmp/gotools \
     && cd /tmp/gotools \
     && export GOPATH=/tmp/gotools \
