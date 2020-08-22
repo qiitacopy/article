@@ -36,7 +36,5 @@ func (p *Postgres) GetByID(id int) (*article.Article, error) {
 // gromConnect : postgresに接続する
 func gormConnect() (*gorm.DB, error) {
 	db, err := gorm.Open("postgres", "postgres://test:test@postgres:5432/qiita?sslmode=disable")
-	// GORMは、デフォルトで構造体名の複数形(構造体+s)のテーブル名を検索するため、構造体名と同じテーブルを参照させる
-	db.SingularTable(true)
 	return db, err
 }
