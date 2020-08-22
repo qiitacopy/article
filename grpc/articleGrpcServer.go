@@ -36,12 +36,13 @@ func (s ArticleGrpcServer) GetByID(ctx context.Context, articleID *ArticleID) (*
 
 // convertArticleRecordToGrpc : DB用記事モデルをgRPC用記事モデルに変換
 func convertArticleRecordToGrpc(record *article.Article) *Article {
+	const timeFormat = "2006/01/02 15:04:05"
 	article := new(Article)
 	article.Id = int32(record.ID)
 	article.Title = record.Title
 	article.Text = record.Text
 	article.Username = record.Username
-	article.CreatedAt = record.CreatedAt.Format("2019/03/01 10:00:00")
-	article.UpdatedAt = record.UpdatedAt.Format("2019/03/01 10:00:00")
+	article.CreatedAt = record.CreatedAt.Format(timeFormat)
+	article.UpdatedAt = record.UpdatedAt.Format(timeFormat)
 	return article
 }
