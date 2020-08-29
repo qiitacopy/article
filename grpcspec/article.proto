@@ -10,10 +10,17 @@ package grpc;
 
 service ArticleService {
     rpc GetByID(GetByIDRequest) returns (Article) {}
+    rpc CreateArticle(CreateArticleRequest) returns (Article) {}
 }
 
 message GetByIDRequest {
     int32 id = 1;
+}
+
+message CreateArticleRequest {
+    string username = 1;
+    string title = 2;
+    string text = 3;
 }
 
 message Article {

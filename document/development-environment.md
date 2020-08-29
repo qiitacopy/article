@@ -26,6 +26,7 @@ TODO(後で頑張るかも)
 3. `src/github.com/qiitacopy/article/server.go`を開いた後に、F5キーを押下してVSCodeのデバックモードを開始する(Goのサーバが起動する)
 4. `grpc_cli ls localhost:9000 grpc.ArticleService -l` コマンドで登録されたgRPCのサービスが確認できる
 5. `grpc_cli call localhost:9000 GetByID "id: 1"` コマンドでgRPCのサービスをコマンドラインで呼び出せる
+6. `grpc_cli call localhost:9000 CreateArticle "username: 'テストユーザ', title: 'タイトル', text: 'テキスト'"` コマンドでgRPCのサービスをコマンドラインで呼び出せる
 
 ## 開発環境更新に関するルール
 ### VSCodeで用いる開発用の外部ライブラリのインストール
