@@ -4,8 +4,8 @@ import (
 	"github.com/jinzhu/gorm"
 	"github.com/qiitacopy/article/article"
 
-	// Postgres用ドライバー
-	_ "github.com/lib/pq"
+	// GORMが公開するPostgres公式用ドライバー
+	_ "github.com/jinzhu/gorm/dialects/postgres"
 )
 
 // Postgres : Postgresのデータベース接続

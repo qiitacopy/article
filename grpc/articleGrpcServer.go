@@ -21,7 +21,7 @@ func NewArticleServer(db db.Database) *ArticleGrpcServer {
 }
 
 // GetByID : 記事IDに該当する記事を１件取得する
-func (s ArticleGrpcServer) GetByID(ctx context.Context, articleID *ArticleID) (*Article, error) {
+func (s ArticleGrpcServer) GetByID(ctx context.Context, articleID *GetByIDRequest) (*Article, error) {
 	log.Printf("gRPC: GetByID is called, ArticleID = %v", articleID.Id)
 	// DBからarticle.Articleを一件取得
 	record, err := s.db.GetByID(int(articleID.Id))

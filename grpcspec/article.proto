@@ -9,10 +9,10 @@ option go_package="github.com/qiitacopy/article/grpc";
 package grpc;
 
 service ArticleService {
-    rpc GetByID(ArticleID) returns (Article) {}
+    rpc GetByID(GetByIDRequest) returns (Article) {}
 }
 
-message ArticleID{
+message GetByIDRequest {
     int32 id = 1;
 }
 
