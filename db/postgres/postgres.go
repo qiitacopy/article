@@ -1,6 +1,8 @@
 package postgres
 
 import (
+	"os"
+
 	"github.com/jinzhu/gorm"
 	"github.com/qiitacopy/article/article"
 
@@ -35,6 +37,13 @@ func (p *Postgres) GetByID(id int) (*article.Article, error) {
 
 // gromConnect : postgresに接続する
 func gormConnect() (*gorm.DB, error) {
-	db, err := gorm.Open("postgres", "postgres://test:test@postgres:5432/qiita?sslmode=disable")
+	// 環境変数の取得
+	user := os.Getenv("DB_USER")
+	pass := os.Getenv("DB_PASS")
+	path := os.Getenv("DB_PATH")
+	dbname := os.Getenv("DB_NAME")
+	dbconnection := "postgres://" + user + ":" + pass + "@" + path + ":5432/" + dbname + "?sslmode=disable"
+
+	db, err := gorm.Open("postgres", dbconnection)
 	return db, err
 }
