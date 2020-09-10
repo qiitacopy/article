@@ -4,6 +4,11 @@ services:
     build:
       context: "./golang"
       dockerfile: "Dockerfile"
+    environment:
+      DB_USER: test
+      DB_PASS: test
+      DB_PATH: postgres
+      DB_NAME: qiita
     ports:
       - "9000:9000"
     command: /bin/sh -c "while sleep 1000; do :; done"

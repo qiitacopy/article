@@ -27,6 +27,13 @@ TODO(後で頑張るかも)
 4. `grpc_cli ls localhost:9000 grpc.ArticleService -l` コマンドで登録されたgRPCのサービスが確認できる
 5. `grpc_cli call localhost:9000 GetByID "id: 1"` コマンドでgRPCのサービスをコマンドラインで呼び出せる
 
+## パイプラインの起動
+本リポジトリではコンテナをビルドし、DockerhubへPUSHを行うパイプラインが構築されている  
+このパイプラインは以下のコマンドでバージョンのタグをつけた際に実行される  
+バージョンの付け方のネーミングルールは先頭にvを付け、その後にMAJOR.MINOR.PATCHを付けるセマンティックバージョニングを採用する  
+1. `git tag -a vX.X.X -m "comment" commitID`
+2. `git push origin vX.X.X`
+
 ## 開発環境更新に関するルール
 ### VSCodeで用いる開発用の外部ライブラリのインストール
 GOPATHを`/workspace`で設定しているため、コンテナ起動後にGUI等でインストールしようとすると、`/workspace/bin`配下にダウンロードされる  

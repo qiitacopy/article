@@ -1,0 +1,24 @@
+name: Container Create(Build & Push)
+
+on:
+  push:
+    tags:
+      - v*
+
+env:
+  DOCKER_USER: ${{secrets.DOCKER_USER}}
+  DOCKER_ACCESS_TOKEN: ${{secrets.DOCKER_ACCESS_TOKEN}}
+  IMAGE: article-backend
+
+jobs:
+  container-create:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Container build & Push
+        run: |
+          docker login --username $DOCKER_USER --password $DOCKER_ACCESS_TOKEN
+          IMAGE_TAG=$(echo ${{ github.ref }} | sed -e "s#refs/tags/v##g")
+          docker build -t $DOCKER_USER/$IMAGE:$IMAGE_TAG -t $DOCKER_USER/$IMAGE:latest .
+          docker push $DOCKER_USER/$IMAGE:$IMAGE_TAG
+          docker push $DOCKER_USER/$IMAGE:latest
